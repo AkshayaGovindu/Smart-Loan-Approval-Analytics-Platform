@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Loan Prediction</h2>
+
+<form method="post">
+
+<input type="number" name="income" placeholder="Income" required>
+
+<input type="number" name="loan" placeholder="Loan Amount" required>
+
+<select name="dependents">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+</select>
+
+<select name="term">
+<option value="360">360</option>
+<option value="180">180</option>
+<option value="60">60</option>
+</select>
+
+<select name="credit_history">
+    <option value="1">Good Credit History</option>
+    <option value="0">Poor Credit History</option>
+</select>
+
+<button type="submit">
+Predict 🚀
+</button>
+
+</form>
+
+{% if result %}
+
+<div class="card">
+
+<h3>{{ result }}</h3>
+
+<p>
+Confidence: {{ prob }}%
+</p>
+
+<p>
+Income:
+{{ symbol }}
+{{ display_income }}
+</p>
+
+<p>
+Loan:
+{{ symbol }}
+{{ display_loan }}
+</p>
+
+<p>
+Currency:
+{{ currency }}
+</p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

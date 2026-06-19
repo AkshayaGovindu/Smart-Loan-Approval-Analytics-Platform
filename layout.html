@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan AI Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+<style>
+body {
+    margin:0;
+    font-family:'Segoe UI';
+    background:#0f172a;
+    color:white;
+}
+
+/* Sidebar */
+.sidebar {
+    width:220px;
+    height:100vh;
+    position:fixed;
+    background:#1e293b;
+    padding-top:20px;
+}
+
+.sidebar a {
+    display:block;
+    padding:12px;
+    color:white;
+    text-decoration:none;
+}
+
+.sidebar a:hover {
+    background:#334155;
+}
+
+/* Main */
+.main {
+    margin-left:220px;
+    padding:20px;
+}
+
+/* Cards */
+.card {
+    background:#1e293b;
+    padding:15px;
+    border-radius:10px;
+    margin:10px;
+    display:inline-block;
+}
+
+/* Inputs */
+input, select {
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:8px;
+    border:none;
+}
+
+/* Button */
+button {
+    padding:10px;
+    width:100%;
+    border:none;
+    background:#00c6ff;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#0072ff;
+}
+
+/* Table */
+table {
+    width:100%;
+    margin-top:20px;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding:10px;
+    border-bottom:1px solid #333;
+}
+
+</style>
+</head>
+
+<body>
+<div class="sidebar">
+    <h2 style="text-align:center;">💰 Loan AI</h2>
+    <a href="/">🏠 Home</a>
+    <a href="/dashboard">📊 Dashboard</a>
+    <a href="/predict">🤖 Predict</a>
+    <a href="/history">🕒 History</a>
+    <a href="/settings">⚙️ Settings</a>
+</div>
+
+<div class="main">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

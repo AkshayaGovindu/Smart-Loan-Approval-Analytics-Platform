@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>📊 Smart Dashboard</h2>
+
+<!-- Stats Cards -->
+<div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:20px;">
+
+    <div class="card">
+        <h3>Total Predictions</h3>
+        <h1>{{ total_predictions }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>Approved</h3>
+        <h1>{{ approved }}</h1>
+    </div>
+
+    <div class="card">
+        <h3>Rejected</h3>
+        <h1>{{ rejected }}</h1>
+    </div>
+
+    <div class="stats">
+
+    <div class="stat-card">
+    <h3>Total Predictions</h3>
+    <h1>{{ total_predictions }}</h1>
+    </div>
+
+    <div class="stat-card">
+    <h3>Approved</h3>
+    <h1>{{ approved }}</h1>
+    </div>
+
+    <div class="stat-card">
+    <h3>Rejected</h3>
+    <h1>{{ rejected }}</h1>
+    </div>
+
+    <div class="stat-card">
+    <h3>Approval Rate</h3>
+    <h1>{{ approval_rate }}%</h1>
+    </div>
+
+    <div class="stat-card">
+    <h3>Average EMI</h3>
+    <h1>{{ avg_emi }}</h1>
+    </div>
+
+</div>
+
+
+<!-- Charts -->
+<div class="chart-grid">
+
+    <div class="chart-card">
+        <h3>📊 Approval vs Rejection</h3>
+        <canvas id="approvalBar"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>🥧 Approval Ratio</h3>
+        <canvas id="approvalPie"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>📈 Approval Trend</h3>
+        <canvas id="approvalLine"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>🎯 Confidence Trend</h3>
+        <canvas id="confidenceChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>💰 EMI Trend</h3>
+        <canvas id="emiChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>📉 Income vs Loan Analysis</h3>
+        <canvas id="scatterChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+// -------------------------
+// BAR CHART
+// -------------------------
+new Chart(document.getElementById("approvalBar"), {
+    type: 'bar',
+    data: {
+        labels: ['Approved', 'Rejected'],
+        datasets: [{
+            label: 'Count',
+            data: [{{ approved }}, {{ rejected }}],
+            backgroundColor: [
+                '#22c55e',
+                '#ef4444'
+            ]
+        }]
+    }
+});
+
+// -------------------------
+// PIE CHART
+// -------------------------
+new Chart(document.getElementById("approvalPie"), {
+    type: 'doughnut',
+    data: {
+        labels: ['Approved', 'Rejected'],
+        datasets: [{
+            data: [{{ approved }}, {{ rejected }}],
+            backgroundColor: [
+                '#22c55e',
+                '#ef4444'
+            ]
+        }]
+    }
+});
+
+// -------------------------
+// LINE CHART
+// -------------------------
+new Chart(document.getElementById("approvalLine"), {
+    type: 'line',
+    data: {
+        labels: {{ prediction_numbers | tojson }},
+        datasets: [{
+            label: 'Approved Count',
+            data: {{ approval_counts | tojson }},
+            borderColor: '#3b82f6',
+            fill: false,
+            tension: 0.3
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+{% endblock %}

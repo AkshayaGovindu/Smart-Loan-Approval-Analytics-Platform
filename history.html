@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Prediction History</h2>
+
+<table>
+
+<tr>
+<th>Income</th>
+<th>Loan</th>
+<th>Currency</th>
+<th>Result</th>
+<th>Confidence</th>
+<th>EMI</th>
+<th>EMI %</th>
+</tr>
+
+{% for h in history %}
+
+<tr>
+
+<td>{{ h.income }}</td>
+
+<td>{{ h.loan }}</td>
+
+<td>{{ h.currency }}</td>
+
+<td>{{ h.result }}</td>
+
+<td>{{ h.prob }}%</td>
+
+<td>{{ h.emi }}</td>
+<td>{{ h.emi_ratio }}%</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

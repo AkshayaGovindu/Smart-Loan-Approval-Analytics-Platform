@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div style="max-width:400px; margin:auto; margin-top:60px;">
+
+    <div class="card" style="padding:30px; text-align:center; border-radius:15px;">
+        
+        <h2 style="margin-bottom:20px;">💰 Currency Settings</h2>
+
+        <form method="POST">
+
+<select name="currency">
+<option value="INR">INR ₹</option>
+<option value="USD">USD $</option>
+<option value="EUR">EUR €</option>
+<option value="GBP">GBP £</option>
+</select>
+
+<label>
+
+<input
+type="checkbox"
+name="save_history"
+checked>
+
+Save Prediction History
+
+</label>
+
+<br><br>
+
+<button type="submit">
+💾 Save Settings
+</button>
+
+</form>
+
+        {% if msg %}
+            <p style="margin-top:15px; color:#22c55e;">{{ msg }}</p>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

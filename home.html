@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>🚀 Welcome to Loan AI</h1>
+<p>Your smart financial assistant</p>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:20px;">
+
+    <div class="card" style="width:220px;">
+        <h3>📊 Dashboard</h3>
+        <p>View analytics & insights</p>
+        <a href="/dashboard"><button>Open</button></a>
+    </div>
+
+    <div class="card" style="width:220px;">
+        <h3>🤖 Predict</h3>
+        <p>Check loan eligibility</p>
+        <a href="/predict"><button>Start</button></a>
+    </div>
+
+    <div class="card" style="width:220px;">
+        <h3>🕒 History</h3>
+        <p>View past records</p>
+        <a href="/history"><button>View</button></a>
+    </div>
+
+    <div class="card" style="width:220px;">
+        <h3>⚙️ Settings</h3>
+        <p>Customize your app</p>
+        <a href="/settings"><button>Configure</button></a>
+    </div>
+
+</div>
+
+<!-- Feature Highlights -->
+<div style="margin-top:40px;">
+    <h2>✨ Features</h2>
+
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+        <div class="card">💡 Smart Predictions</div>
+        <div class="card">📊 Data Analytics</div>
+        <div class="card">🌍 Multi-Currency</div>
+        <div class="card">🔒 Secure System</div>
+    </div>
+</div>
+
+{% endblock %}
