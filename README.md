@@ -9,12 +9,12 @@ A machine learning-powered loan approval system built using Flask, XGBoost, HTML
 - Uses applicant income, loan amount, dependents, loan term, and credit history as inputs.
 
 ## EMI-Based Loan Eligibility Analysis
-Unlike traditional student projects that only predict approval/rejection, this system also evaluates:
+### Unlike traditional student projects that only predict approval/rejection, this system also evaluates:
 
 - Monthly EMI
 - EMI-to-Income Ratio
 - Loan affordability analysis
-Additional validation:
+### Additional validation:
 
 - Loans can be rejected if EMI exceeds acceptable income thresholds.
 - Simulates real-world banking loan evaluation practices.
@@ -26,7 +26,7 @@ Additional validation:
 - USD ($)
 - EUR (€)
 - GBP (£)
-All financial values are dynamically converted and displayed according to the selected currency.
+### All financial values are dynamically converted and displayed according to the selected currency.
 
 ## Interactive Analytics Dashboard
 Provides real-time visualization of prediction data:
