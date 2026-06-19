@@ -91,3 +91,13 @@ Users can choose whether to:
 - Data Preprocessing
 - Missing Value Handling
 - Label Encoding
+
+## Workflow
+- User enters loan details.
+- ML model predicts approval probability.
+- EMI is calculated.
+- EMI affordability is evaluated.
+- Decision is displayed with confidence score.
+- Prediction is stored in history (optional).
+- Dashboard updates automatically.
+- Charts reflect latest analytics.
